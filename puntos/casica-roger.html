@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Casica Roger | Eclipse Solar 2026</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+
+<img src="../img/logo.png">
+
+<span>
+Ayuntamiento de Villar del Arzobispo
+</span>
+
+</div>
+
+
+<div class="nav-links">
+
+<a href="../index.html">
+Inicio
+</a>
+
+<a href="../pdf/guia-eclipse.pdf" target="_blank">
+📄 Guía
+</a>
+
+</div>
+
+</nav>
+
+
+
+
+<!-- CABECERA DEL PUNTO -->
+
+<section class="punto-hero">
+
+
+<h1>
+📍 Casica Roger
+</h1>
+
+
+<p>
+⭐ Mejor punto de observación del eclipse
+</p>
+
+
+</section>
+
+
+<!-- ÍNDICE DE CONTENIDOS -->
+
+<nav class="ruta-eclipse">
+
+    <div class="ruta-titulo">
+        🌑 Explora Casica Roger
+    </div>
+
+    <p>
+        Descubre el lugar, el cielo y todo lo necesario para vivir el eclipse.
+    </p>
+
+
+    <div class="ruta-botones">
+
+        <a href="#sobre-punto">
+            <span>🌞</span>
+            <small>El lugar</small>
+        </a>
+
+        <a href="#horario-eclipse">
+            <span>🌘</span>
+            <small>El eclipse</small>
+        </a>
+
+        <a href="#que-ver">
+            <span>✨</span>
+            <small>Qué ver</small>
+        </a>
+
+        <a href="#donde-mirar">
+            <span>🧭</span>
+            <small>Dónde mirar</small>
+        </a>
+
+        <a href="#posicion-sol">
+            <span>☀️</span>
+            <small>El cielo</small>
+        </a>
+
+        <a href="#consejos">
+            <span>🎒</span>
+            <small>Consejos</small>
+        </a>
+
+        <a href="#meteorologia">
+            <span>🌦️</span>
+            <small>Tiempo</small>
+        </a>
+
+        <a href="#seguridad">
+            <span>🕶️</span>
+            <small>Seguridad</small>
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="info-punto">
+
+
+
+
+
+<!-- INTRO -->
+
+<div class="bloque-info" id="sobre-punto">
+<h2>
+🌞 Sobre este punto
+</h2>
+
+
+<p>
+
+Casica Roger es uno de los puntos recomendados para observar
+el eclipse solar del 12 de agosto de 2026 desde Villar del Arzobispo.
+
+</p>
+
+<br>
+
+<p>
+
+Su principal ventaja es disponer de un horizonte occidental
+completamente despejado, permitiendo seguir la evolución del eclipse
+hasta la puesta del Sol.
+
+</p>
+
+
+</div>
+
+<!-- DATOS -->
+
+<div class="bloque-info" id="informacion-lugar">
+
+<h2>
+🗺️ Información del lugar
+</h2>
+
+
+<div class="datos">
+
+
+<div class="dato">
+
+<strong>
+📍 Coordenadas
+</strong>
+
+39°41'10.13"N<br>
+0°47'59.91"W
+
+</div>
+
+
+
+<div class="dato">
+
+<strong>
+🏔 Altitud
+</strong>
+
+380,97 m
+
+</div>
+
+
+
+<div class="dato">
+
+<strong>
+🚗 Desde Villar
+</strong>
+
+10 minutos
+
+</div>
+
+
+
+<div class="dato">
+
+<strong>
+🚶 Caminando
+</strong>
+
+1 h 30 min
+
+</div>
+
+
+</div>
+
+
+</div>
+
+<!-- ECLIPSE -->
+
+<div class="bloque-info" id="horario-eclipse">
+    <h2>
+        🌞 Horario del eclipse
+    </h2>
+
+    <div class="datos">
+
+        <div class="dato">
+            <strong>🌗 Inicio parcial</strong>
+            19:37:57
+        </div>
+
+        <div class="dato">
+            <strong>🌑 Inicio totalidad</strong>
+            20:32:09
+        </div>
+
+        <div class="dato">
+            <strong>⭐ Máximo</strong>
+            20:32:41
+        </div>
+
+        <div class="dato">
+            <strong>🌅 Ocaso del Sol</strong>
+            21:03:23
+        </div>
+
+    </div>
+
+    <p class="duracion-totalidad">
+
+        ⏱️ <strong>Duración de la totalidad:</strong> 1 minuto y 5 segundos.
+
+    </p>
+
+</div>
+
+<!-- ======================================
+     TARJETA DEL ECLIPSE
+======================================= -->
+
+<section class="tarjeta-eclipse" id="cuenta-atras">
+
+        <h2>🌞 Eclipse Solar 2026</h2>
+
+        <p>
+            Cuenta atrás para el inicio del eclipse desde
+            <strong>Casica Roger</strong>
+        </p>
+
+    </div>
+
+    <div class="contador">
+
+        <div class="unidad">
+            <span id="dias">--</span>
+            <small>Días</small>
+        </div>
+
+        <div class="unidad">
+            <span id="horas">--</span>
+            <small>Horas</small>
+        </div>
+
+        <div class="unidad">
+            <span id="minutos">--</span>
+            <small>Minutos</small>
+        </div>
+
+        <div class="unidad">
+            <span id="segundos">--</span>
+            <small>Segundos</small>
+        </div>
+
+    </div>
+
+    <div class="estado-eclipse">
+
+        <div id="mensaje-eclipse">
+
+            Calculando...
+
+        </div>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="fase" id="fase-parcial">
+            <div class="circulo"></div>
+            <div class="texto">
+                <strong>Inicio parcial</strong>
+                <span>19:37:57</span>
+            </div>
+        </div>
+
+        <div class="fase" id="fase-totalidad">
+            <div class="circulo"></div>
+            <div class="texto">
+                <strong>Totalidad</strong>
+                <span>20:32:09</span>
+            </div>
+        </div>
+
+        <div class="fase" id="fase-maximo">
+            <div class="circulo"></div>
+            <div class="texto">
+                <strong>Máximo</strong>
+                <span>20:32:14</span>
+            </div>
+        </div>
+
+        <div class="fase" id="fase-ocaso">
+            <div class="circulo"></div>
+            <div class="texto">
+                <strong>Ocaso</strong>
+                <span>21:03:23</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="acompanamiento" class="modo-evento">
+    <div class="evento-cabecera">
+
+        <span id="eventoIcono">🟢</span>
+
+        <h2>Acompañándote durante el eclipse</h2>
+
+    </div>
+
+    <h3 id="eventoTitulo">
+
+        Todo preparado
+
+    </h3>
+
+    <p id="eventoMensaje">
+
+        Todavía queda tiempo para preparar el material.
+
+    </p>
+
+    <div class="evento-accion">
+
+        <strong>Qué hacer ahora</strong>
+
+        <p id="eventoAccion">
+
+            Busca un lugar cómodo y comprueba que tienes las gafas homologadas.
+
+        </p>
+
+    </div>
+
+</section>
+
+<section class="timeline-eclipse" id="que-ver">
+<h2>✨ ¿Qué verás durante el eclipse?</h2>
+
+<p class="intro-timeline">
+
+Sigue paso a paso la evolución del eclipse y descubre los fenómenos que podrás observar desde Casica Roger.
+
+</p>
+
+<div class="timeline">
+
+    <div class="momento simple">
+
+        <div class="hora">
+
+            🌗 19:37:57
+
+        </div>
+
+        <div class="contenido">
+
+            <h3>Comienza el eclipse parcial</h3>
+
+            <p>
+
+                La Luna comienza a ocultar lentamente el Sol. Desde este momento deben utilizarse las gafas homologadas.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="momento">
+
+        <img
+            src="../img/fenomenos/perlas-baily.jpg"
+            alt="Perlas de Baily">
+
+        <div class="contenido">
+
+            <h3>✨ Perlas de Baily</h3>
+
+            <p>
+
+                Instantes antes de la totalidad aparecen pequeños destellos de luz al atravesar los valles del relieve lunar.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="momento">
+
+        <img
+            src="../img/fenomenos/anillo-diamante.jpg"
+            alt="Anillo de diamante">
+
+        <div class="contenido">
+
+            <h3>💎 Anillo de diamante</h3>
+
+            <p>
+
+                El último destello del Sol permanece visible durante unos segundos antes de desaparecer por completo.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="totalidad-panel">
+
+        <h3>🌑 TOTALIDAD</h3>
+
+        <span>
+
+            20:32:09 – 20:33:14
+
+        </span>
+
+        <img
+            src="../img/fenomenos/corona-solar.jpg"
+            alt="Corona solar">
+
+        <p>
+
+            Durante poco más de un minuto la Luna cubrirá completamente el Sol y será visible la corona solar.
+
+        </p>
+
+        <ul>
+
+            <li>Venus y otros astros brillantes podrán hacerse visibles.</li>
+
+            <li>El paisaje adquirirá un aspecto crepuscular.</li>
+
+        </ul>
+
+    </div>
+
+    <div class="momento">
+
+        <img
+            src="../img/fenomenos/anillo-diamante.jpg"
+            alt="Anillo de diamante">
+
+        <div class="contenido">
+
+            <h3>💎 Anillo de diamante</h3>
+
+            <p>
+
+                La luz del Sol reaparece anunciando el final de la totalidad.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="momento">
+
+        <img
+            src="../img/fenomenos/perlas-baily.jpg"
+            alt="Perlas de Baily">
+
+        <div class="contenido">
+
+            <h3>✨ Perlas de Baily</h3>
+
+            <p>
+
+                Los últimos destellos marcan la transición hacia el eclipse parcial.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="momento simple">
+
+        <div class="hora">
+
+            🌅 21:03:23
+
+        </div>
+
+        <div class="contenido">
+
+            <h3>Puesta de Sol</h3>
+
+            <p>
+
+                El Sol se oculta por el horizonte mientras concluyen las últimas fases del eclipse.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="brujula-panel" id="donde-mirar">
+    <h2>🧭 ¿Dónde mirar?</h2>
+
+    <p>
+        La posición del Sol se actualiza en tiempo real.
+    </p>
+
+    <svg id="brujulaSVG"
+         viewBox="0 0 400 400">
+
+        <!-- círculo -->
+
+        <circle
+            cx="200"
+            cy="200"
+            r="170"
+            fill="white"
+            stroke="#12355B"
+            stroke-width="4"/>
+
+        <!-- cruz -->
+
+        <line x1="200" y1="30"
+              x2="200" y2="370"
+              stroke="#12355B"
+              stroke-width="2"/>
+
+        <line x1="30" y1="200"
+              x2="370" y2="200"
+              stroke="#12355B"
+              stroke-width="2"/>
+
+        <!-- diagonales -->
+
+        <line x1="80" y1="80"
+              x2="320" y2="320"
+              stroke="#d5dde8"/>
+
+        <line x1="320" y1="80"
+              x2="80" y2="320"
+              stroke="#d5dde8"/>
+
+        <!-- letras -->
+
+        <text x="200" y="20" text-anchor="middle">N</text>
+        <text x="200" y="392" text-anchor="middle">S</text>
+        <text x="20" y="205">O</text>
+        <text x="380" y="205" text-anchor="end">E</text>
+
+        <!-- Grupo del Sol -->
+
+        <g id="grupoSol">
+
+            <line
+                x1="200"
+                y1="200"
+                x2="200"
+                y2="60"
+                stroke="#FDB813"
+                stroke-width="4"/>
+
+            <circle
+                cx="200"
+                cy="60"
+                r="12"
+                fill="#FDB813"/>
+
+        </g>
+
+        <!-- Centro -->
+
+        <circle
+            cx="200"
+            cy="200"
+            r="7"
+            fill="#12355B"/>
+
+    </svg>
+
+    <p id="direccion-sol"></p>
+    <p id="ayuda-brujula">
+
+    Sitúate mirando en la dirección indicada para observar el eclipse.
+
+</p>
+
+</section>
+
+<section class="panel-cielo" id="posicion-sol">
+
+<h2>☀️ El cielo desde Casica Roger</h2>
+
+<p>
+Posición de los astros durante el eclipse solar del 12 de agosto de 2026.
+</p>
+
+
+<div class="horizonte-cielo">
+
+
+<img 
+id="panoramica-cielo"
+src="../img/puntos/sol-casica.jpeg"
+alt="Horizonte desde Casica Roger">
+
+
+<svg id="cieloSVG"
+viewBox="0 0 800 450">
+
+
+<!-- Sol -->
+
+<g id="grupoSolCielo">
+
+<circle
+cx="0"
+cy="0"
+r="18"
+fill="#FDB813"
+stroke="white"
+stroke-width="3"/>
+
+
+<text
+x="20"
+y="5"
+fill="white">
+☀️ Sol
+</text>
+
+</g>
+
+
+
+<!-- Venus -->
+
+<g id="grupoVenus">
+
+    <circle
+    cx="0"
+    cy="0"
+    r="10"
+    fill="#fff2c7"
+    stroke="white"
+    stroke-width="2"/>
+
+    <text
+    x="15"
+    y="5"
+    fill="white"
+    font-size="16">
+    ♀ Venus
+    </text>
+
+</g>
+
+
+<!-- Mercurio -->
+
+<g id="grupoMercurio">
+
+    <circle
+    cx="0"
+    cy="0"
+    r="7"
+    fill="#cccccc"
+    stroke="white"
+    stroke-width="2"/>
+
+    <text
+    x="12"
+    y="5"
+    fill="white"
+    font-size="14">
+    ☿ Mercurio
+    </text>
+
+</g>
+</svg>
+</div>
+
+
+<div class="datos-observacion">
+
+<div>
+☀️ Altura
+<strong id="altura-sol">
+--
+</strong>
+</div>
+
+<div>
+🧭 Azimut
+<strong id="azimut-sol">
+--
+</strong>
+</div>
+
+
+</div>
+
+</section>
+
+<!-- ======================================
+     CONSEJOS PARA LA VISITA
+====================================== -->
+
+<section class="consejos-panel" id="consejos">
+    <h2>📋 Consejos para la visita</h2>
+
+    <p class="intro-consejos">
+
+        Una buena planificación te permitirá disfrutar del eclipse con mayor comodidad y seguridad.
+
+    </p>
+
+    <div class="consejos-grid">
+
+        <!-- Antes de salir -->
+
+        <div class="consejo">
+
+            <h3>Antes de salir</h3>
+
+            <ul>
+
+                <li>Lleva gafas de observación solar homologadas (ISO 12312-2).</li>
+
+                <li>Consulta la previsión meteorológica antes de desplazarte.</li>
+
+                <li>Lleva agua, protección solar y algo de comida si vas a permanecer varias horas.</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Al llegar -->
+
+        <div class="consejo">
+
+            <h3>Al llegar</h3>
+
+            <ul>
+
+                <li>Llega con tiempo suficiente para elegir un buen lugar de observación.</li>
+
+                <li>Evita obstaculizar caminos o accesos.</li>
+
+                <li>Respeta el entorno y deposita los residuos en los lugares adecuados.</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Durante el eclipse -->
+
+        <div class="consejo">
+
+            <h3>Durante el eclipse</h3>
+
+            <ul>
+
+                <li>Utiliza siempre protección adecuada para observar el Sol.</li>
+
+                <li>Observa también los cambios de luz y el paisaje que te rodea.</li>
+
+                <li>Disfruta del momento.</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Al finalizar -->
+
+        <div class="consejo">
+
+            <h3>Al finalizar</h3>
+
+            <ul>
+
+                <li>Abandona el lugar con tranquilidad.</li>
+
+                <li>Asegúrate de no dejar ningún residuo.</li>
+
+                <li>Comparte tu experiencia y tus fotografías del eclipse.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="mapa-panel" id="localizacion">
+    <h2>🗺️ Localización</h2>
+
+    <p>
+
+        Consulta la ubicación exacta de Casica Roger y planifica tu llegada.
+
+    </p>
+
+    <div id="mapa"></div>
+    <div id="infoRuta" class="info-ruta">
+
+    <div class="ruta-item">
+
+        <span>🚗</span>
+
+        <div>
+
+            <strong>En coche</strong>
+
+            <p id="rutaCoche">
+
+                Calculando...
+
+            </p>
+
+        </div>
+
+    </div>
+
+<div class="ruta-item">
+
+    <span>🚶</span>
+
+    <div>
+
+        <strong>A pie</strong>
+
+        <p>
+
+            ≈ 1 h 30 min · Acceso por camino rural
+
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<button
+    id="btnNavegar"
+    class="boton principal">
+
+    🧭 Iniciar navegación
+
+</button>
+
+</section>
+
+<!-- ======================================
+     METEOROLOGÍA
+====================================== -->
+
+<section class="meteo-panel" id="meteorologia">
+    <h2>🌦️ Meteorología</h2>
+
+    <p
+    id="tituloMeteo"
+    class="intro-meteo">
+
+    Cargando información meteorológica...
+
+</p>
+
+    <div class="meteo-grid">
+
+        <div class="meteo-item">
+            <span class="valor" id="temp">--°C</span>
+            <small>Temperatura</small>
+        </div>
+
+        <div class="meteo-item">
+            <span class="valor" id="nubes">--%</span>
+            <small>Nubosidad</small>
+        </div>
+
+        <div class="meteo-item">
+            <span class="valor" id="viento">-- km/h</span>
+            <small>Viento</small>
+        </div>
+
+        <div class="meteo-item">
+            <span class="valor" id="visibilidad">-- km</span>
+            <small>Visibilidad</small>
+        </div>
+
+    </div>
+
+    <div id="estadoObservacion" class="estado-observacion">
+
+        Calculando condiciones...
+
+    </div>
+
+</section>
+
+
+<!-- SEGURIDAD -->
+
+<div class="bloque-info" id="seguridad">
+<h2>
+🕶️ Observación segura
+</h2>
+
+<p>
+Utiliza únicamente gafas solares homologadas ISO 12312-2.
+</p>
+
+<br>
+
+<p>
+Nunca observes el Sol directamente sin protección adecuada.
+</p>
+
+<br>
+
+<div class="descarga-seguridad">
+
+<h3>
+📄 Guía de seguridad del eclipse
+</h3>
+
+<p>
+Descarga nuestra infografía con las recomendaciones básicas para disfrutar del eclipse de forma segura.
+</p>
+
+<a href="documentos/infografia-seguridad-eclipse.pdf" download class="boton-descarga">
+⬇️ Descargar infografía
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<a class="volver" href="../index.html">
+
+← Volver a puntos
+
+</a>
+
+
+
+</main>
+
+
+<script src="https://unpkg.com/suncalc@1.9.0/suncalc.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+<script src="../js/eclipse.js"></script>
+
+<script src="../js/mapa.js"></script>
+
+<script src="../js/meteo.js"></script>
+
+</body>
+
+</html>

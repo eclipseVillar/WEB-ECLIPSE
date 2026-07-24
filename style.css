@@ -1,0 +1,2311 @@
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:#f4f7fb;
+
+    color:#1c2b39;
+
+    line-height:1.6;
+
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    padding-top:90px;
+
+    background:
+        linear-gradient(rgba(5,25,45,.65), rgba(5,25,45,.75)),
+        url("img/portada.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    min-height:55vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    padding:40px;
+
+}
+
+.overlay{
+
+    max-width:800px;
+
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+    margin-bottom:15px;
+
+    text-shadow:0 4px 12px rgba(0,0,0,.4);
+
+}
+
+.hero h2{
+
+    font-weight:300;
+
+    font-size:1.6rem;
+
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    font-size:1.15rem;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================
+   BOTONES
+========================== */
+
+.hero-botones{
+
+    display:flex;
+
+    gap:20px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.boton{
+
+    text-decoration:none;
+
+    padding:18px 30px;
+
+    border-radius:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+.principal{
+
+    background:#f6b800;
+
+    color:#0f2740;
+
+}
+
+.secundario{
+
+    background:white;
+
+    color:#0f2740;
+
+}
+
+.boton:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================
+   CONTENIDO
+========================== */
+
+main{
+
+    width:min(1100px,90%);
+
+    margin:70px auto;
+
+}
+
+.titulo-seccion{
+
+    text-align:center;
+
+    color:#12355B;
+
+    font-size:2rem;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.tarjeta{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:#1c2b39;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.tarjeta:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+.tarjeta h3{
+
+    color:#12355B;
+
+    margin-bottom:12px;
+
+    font-size:1.4rem;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    background:#12355B;
+
+    color:white;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+.logo{
+    width:260px;
+    max-width:90%;
+    margin:30px auto;
+    display:block;
+}
+
+/* ==========================
+   MÓVIL
+========================== */
+
+@media(max-width:700px){
+
+.hero h1{
+
+    font-size:2.6rem;
+
+}
+
+.hero h2{
+
+    font-size:1.2rem;
+
+}
+
+.hero{
+
+    min-height:60vh;
+
+}
+
+.hero-botones{
+
+    flex-direction:column;
+
+}
+
+.boton{
+
+    width:100%;
+
+}
+
+}
+/* ==========================
+   ICONOS EN BOTONES
+========================== */
+
+.boton{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+
+}
+
+.icono{
+
+    font-size:2rem;
+
+}
+
+.boton div{
+
+    text-align:left;
+
+}
+
+.boton strong{
+
+    display:block;
+    font-size:1.1rem;
+
+}
+/* ==========================
+   ETIQUETAS
+========================== */
+
+.etiqueta{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+    font-size:.85rem;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.mejor{
+
+    background:#FFE8A3;
+
+    color:#8A6200;
+
+}
+
+.acceso{
+
+    background:#DFF5E3;
+
+    color:#1E7A39;
+
+}
+
+.espacio{
+
+    background:#DCEBFF;
+
+    color:#0E5AA7;
+
+}
+
+/* ==========================
+   VER MÁS
+========================== */
+
+.ver-mas{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+    color:#12355B;
+
+}
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 40px;
+
+    background:rgba(5,25,45,.85);
+
+    backdrop-filter:blur(10px);
+
+    z-index:1000;
+
+}
+
+.nav-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+.nav-logo img{
+
+    width:55px;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#f6b800;
+
+}
+/* ==========================
+   PÁGINAS DE PUNTOS
+========================== */
+
+
+.punto-hero{
+
+    background:
+    linear-gradient(rgba(5,25,45,.7),rgba(5,25,45,.8)),
+    url("../img/cielo.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    padding:120px 20px 70px;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+
+.punto-hero h1{
+
+    font-size:3rem;
+
+}
+
+
+.punto-hero p{
+
+    font-size:1.2rem;
+
+}
+
+
+
+.info-punto{
+
+    width:min(1000px,90%);
+
+    margin:60px auto;
+
+}
+
+
+.bloque-info{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.bloque-info h2{
+
+    color:#12355B;
+
+    margin-bottom:15px;
+
+}
+
+
+.datos{
+
+    display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+
+
+}
+
+.duracion-totalidad{
+
+    margin-top:20px;
+    text-align:center;
+    font-size:1rem;
+    color:#12355B;
+    font-weight:500;
+
+}
+
+.dato{
+
+    background:#f4f7fb;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+.dato strong{
+
+    display:block;
+
+    color:#12355B;
+
+    font-size:1.1rem;
+
+}
+
+
+
+.volver{
+
+    display:inline-block;
+
+    background:#12355B;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+}
+.punto-hero{
+
+    background:
+    linear-gradient(rgba(5,25,45,.7),rgba(5,25,45,.8)),
+    url("img/casica-roger.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    padding:150px 20px 80px;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+
+.punto-hero h1{
+
+    font-size:3rem;
+
+}
+
+
+.info-punto{
+
+    width:min(1000px,90%);
+
+    margin:60px auto;
+
+}
+
+
+.bloque-info{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.bloque-info h2{
+
+    color:#12355B;
+
+    margin-bottom:20px;
+
+}
+
+
+.datos{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
+
+}
+
+
+.dato{
+
+    background:#f4f7fb;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+.dato strong{
+
+    display:block;
+
+    color:#12355B;
+
+    margin-bottom:8px;
+
+}
+
+
+.volver{
+
+    display:inline-block;
+
+    padding:15px 25px;
+
+    background:#12355B;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+}
+/* ======================================
+   TARJETA DEL ECLIPSE
+====================================== */
+
+.tarjeta-eclipse{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    margin:40px 0;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.cabecera-eclipse{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.cabecera-eclipse h2{
+
+    color:#12355B;
+
+    margin-bottom:10px;
+
+}
+
+.contador{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+.unidad{
+
+    background:#12355B;
+
+    color:white;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.unidad span{
+
+    display:block;
+
+    font-size:2.3rem;
+
+    font-weight:bold;
+
+    color:#f6b800;
+
+}
+
+.unidad small{
+
+    font-size:.9rem;
+
+}
+
+.estado-eclipse{
+
+    background:#f4f7fb;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    font-weight:600;
+
+    color:#12355B;
+
+}
+
+.timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.fase{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    opacity:.35;
+
+    transition:.4s;
+
+}
+
+.circulo{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#c9d4df;
+
+    flex-shrink:0;
+
+}
+
+.fase.activa{
+
+    opacity:1;
+
+}
+
+.fase.activa .circulo{
+
+    background:#f6b800;
+
+    box-shadow:0 0 12px rgba(246,184,0,.7);
+
+}
+
+.fase.completada .circulo{
+
+    background:#2ca24c;
+
+}
+
+.texto{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    width:100%;
+
+}
+
+.texto span{
+
+    color:#6b7280;
+
+}
+
+@media(max-width:700px){
+
+.contador{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.texto{
+
+flex-direction:column;
+
+gap:4px;
+
+}
+
+}
+/* ======================================
+   PANEL DEL CIELO
+====================================== */
+
+.panel-cielo{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    margin:40px 0;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.panel-cielo h2{
+
+    text-align:center;
+
+    color:#12355B;
+
+}
+
+.panel-cielo p{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+#cieloSVG {
+
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:2;
+
+}
+
+
+.datos-observacion{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.datos-observacion div{
+
+    background:#f4f7fb;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.datos-observacion strong{
+
+    display:block;
+
+    font-size:2rem;
+
+    color:#12355B;
+
+    margin-top:10px;
+
+}
+/* ======================================
+   BRÚJULA
+====================================== */
+
+.brujula-panel{
+
+    background:white;
+
+    padding:35px;
+
+    margin:40px 0;
+
+    border-radius:24px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+.brujula{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:30px 0;
+
+}
+
+.rosa{
+
+    position:relative;
+
+    width:260px;
+
+    height:260px;
+
+    border:5px solid #12355B;
+
+    border-radius:50%;
+
+}
+
+.centro{
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    background:#12355B;
+
+    border-radius:50%;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+#flecha-sol{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:120px;
+
+    transform-origin:left center;
+
+    font-size:1.8rem;
+
+}
+
+.n,.s,.e,.o{
+
+    position:absolute;
+
+    font-weight:bold;
+
+    color:#12355B;
+
+}
+
+.n{top:8px;left:50%;transform:translateX(-50%);}
+.s{bottom:8px;left:50%;transform:translateX(-50%);}
+.e{right:10px;top:50%;transform:translateY(-50%);}
+.o{left:10px;top:50%;transform:translateY(-50%);}
+#brujulaSVG{
+
+    width:100%;
+    max-width:420px;
+    display:block;
+    margin:auto;
+
+}
+
+#brujulaSVG text{
+
+    font-weight:bold;
+    fill:#12355B;
+    font-size:18px;
+
+}
+#ayuda-brujula{
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-size:.95rem;
+
+}
+/* ======================================
+   MODO EVENTO
+====================================== */
+
+.modo-evento{
+
+    background:white;
+
+    border-left:8px solid #3BA55D;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin:40px 0;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.5s;
+
+}
+
+.evento-cabecera{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+#eventoIcono{
+
+    font-size:2rem;
+
+}
+
+.modo-evento h2{
+
+    color:#12355B;
+
+    font-size:1.4rem;
+
+}
+
+#eventoTitulo{
+
+    margin-bottom:15px;
+
+    color:#12355B;
+
+}
+
+#eventoMensaje{
+
+    margin-bottom:25px;
+
+    line-height:1.7;
+
+}
+
+.evento-accion{
+
+    background:#f4f7fb;
+
+    border-radius:15px;
+
+    padding:18px;
+
+}
+
+.evento-accion strong{
+
+    color:#12355B;
+
+    display:block;
+
+    margin-bottom:10px;
+
+}
+/* ======================================
+   MAPA
+====================================== */
+
+.mapa-panel{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    margin:40px 0;
+
+}
+
+#mapa{
+
+    height:450px;
+
+    border-radius:15px;
+
+    margin:25px 0;
+
+    overflow:hidden;
+
+}
+/* ======================================
+   RUTA
+====================================== */
+
+.info-ruta{
+
+    margin:25px 0;
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+.ruta-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:#f4f7fb;
+
+    padding:18px;
+
+    border-radius:15px;
+
+}
+
+.ruta-item span{
+
+    font-size:2rem;
+
+}
+
+.ruta-item strong{
+
+    display:block;
+
+    color:#12355B;
+
+}
+
+/* ======================================
+   LEAFLET ROUTING
+====================================== */
+
+.leaflet-routing-container{
+
+    display:none !important;
+
+}
+.fenomenos-grid{
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+}
+
+.fenomenos-grid .dato{
+
+    text-align:left;
+    line-height:1.6;
+
+}
+
+/* ===================================================
+   TIMELINE DEL ECLIPSE
+=================================================== */
+
+.timeline-eclipse{
+
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    margin:40px 0;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.timeline-eclipse h2{
+
+    text-align:center;
+    color:#12355B;
+    margin-bottom:15px;
+
+}
+
+.intro-timeline{
+
+    text-align:center;
+    color:#5c6b7a;
+    max-width:700px;
+    margin:0 auto 50px;
+
+}
+
+/* Línea vertical */
+
+.timeline{
+
+    position:relative;
+    max-width:900px;
+    margin:auto;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    bottom:0;
+
+    width:4px;
+
+    background:#F6B800;
+
+    transform:translateX(-50%);
+
+    border-radius:20px;
+
+}
+
+/* Cada evento */
+
+.momento{
+
+    position:relative;
+
+    width:calc(50% - 40px);
+
+    margin-bottom:50px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+}
+
+/* Alternar izquierda y derecha */
+
+.momento:nth-child(odd){
+
+    margin-left:auto;
+
+}
+
+.momento:nth-child(even){
+
+    margin-right:auto;
+
+}
+
+/* Punto */
+
+.momento::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#F6B800;
+
+    top:35px;
+
+    z-index:5;
+
+}
+
+.momento:nth-child(even)::before{
+
+    right:-49px;
+
+}
+
+.momento:nth-child(odd)::before{
+
+    left:-49px;
+
+}
+
+/* Imagen */
+
+.momento img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* Texto */
+
+.contenido{
+
+    padding:25px;
+
+}
+
+.contenido h3{
+
+    color:#12355B;
+
+    margin-bottom:12px;
+
+}
+
+.contenido p{
+
+    color:#546170;
+
+    line-height:1.7;
+
+}
+
+/* Inicio y final */
+
+.momento.simple{
+
+    padding:25px;
+
+}
+
+.hora{
+
+    font-weight:700;
+
+    color:#F6B800;
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================
+   TARJETA CENTRAL
+========================== */
+
+.totalidad-panel{
+
+    position:relative;
+
+    width:70%;
+
+    margin:80px auto;
+
+    background:#12355B;
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.20);
+
+    z-index:2;
+
+}
+
+.totalidad-panel h3{
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
+
+.totalidad-panel span{
+
+    color:#FFD84D;
+
+    font-weight:bold;
+
+}
+
+.totalidad-panel img{
+
+    width:100%;
+
+    border-radius:16px;
+
+    margin:25px 0;
+
+}
+
+.totalidad-panel p{
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+.totalidad-panel ul{
+
+    text-align:left;
+
+    display:inline-block;
+
+    line-height:1.8;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+.timeline::before{
+
+    left:20px;
+
+}
+
+.momento{
+
+    width:calc(100% - 60px);
+
+    margin-left:60px !important;
+
+}
+
+.momento::before{
+
+    left:-49px !important;
+
+}
+
+.totalidad-panel{
+
+    width:calc(100% - 60px);
+
+    margin-left:60px;
+
+}
+
+}
+
+/* ===================================================
+   CONSEJOS
+=================================================== */
+
+.consejos-panel{
+
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    margin:40px 0;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.consejos-panel h2{
+
+    text-align:center;
+    color:#12355B;
+    margin-bottom:15px;
+
+}
+
+.intro-consejos{
+
+    text-align:center;
+    color:#5f6d7a;
+    max-width:700px;
+    margin:0 auto 40px;
+
+}
+
+.consejos-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+
+}
+
+.consejo{
+
+    border-left:6px solid #F6B800;
+    background:#F8FAFC;
+    padding:25px;
+    border-radius:15px;
+    transition:.25s;
+
+}
+
+.consejo:hover{
+
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.consejo h3{
+
+    color:#12355B;
+    margin-bottom:15px;
+
+}
+
+.consejo ul{
+
+    margin:0;
+    padding-left:18px;
+    line-height:1.8;
+    color:#4F5D6A;
+
+}
+
+.consejo li{
+
+    margin-bottom:10px;
+
+}
+/*===================================================
+METEOROLOGÍA
+===================================================*/
+
+.meteo-panel{
+
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    margin:40px 0;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.meteo-panel h2{
+
+    text-align:center;
+    color:#12355B;
+
+}
+
+.intro-meteo{
+
+    text-align:center;
+    color:#687685;
+    margin:15px auto 35px;
+    max-width:700px;
+
+}
+
+.meteo-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:20px;
+
+}
+
+.meteo-item{
+
+    background:#F8FAFC;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+
+}
+
+.valor{
+
+    display:block;
+    font-size:2rem;
+    font-weight:700;
+    color:#12355B;
+
+}
+
+.estado-observacion{
+
+    margin-top:35px;
+    background:#F4F8FC;
+    border-left:6px solid #F6B800;
+    border-radius:12px;
+    padding:20px;
+    font-size:1.1rem;
+    text-align:center;
+
+}
+
+.descarga-seguridad {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.boton-descarga {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+
+.ruta-eclipse {
+
+    max-width:900px;
+    margin:35px auto;
+    padding:30px;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        135deg,
+        #f7fbff,
+        #eaf3ff
+    );
+
+    text-align:center;
+
+}
+
+
+.ruta-titulo {
+
+    font-size:1.5rem;
+    font-weight:bold;
+    color:#12355B;
+
+}
+
+
+.ruta-eclipse p {
+
+    margin:10px auto 25px;
+    color:#555;
+
+}
+
+
+.ruta-botones {
+
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(120px,1fr)
+    );
+
+    gap:15px;
+
+}
+
+
+.ruta-botones a {
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px 10px;
+
+    text-decoration:none;
+
+    color:#12355B;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+}
+
+
+.ruta-botones a:hover {
+
+    transform:translateY(-4px);
+
+}
+
+
+.ruta-botones span {
+
+    display:block;
+
+    font-size:2rem;
+
+    margin-bottom:8px;
+
+}
+
+
+.ruta-botones small {
+
+    font-size:.9rem;
+
+}
+
+.horizonte-cielo {
+
+    position: relative;
+    width: 100%;
+    height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+}
+
+
+.horizonte-cielo img {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center bottom;
+
+    z-index: 1;
+
+}
+
+
+#cieloSVG {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+#grupoVenus circle {
+
+    filter: drop-shadow(0 0 8px white);
+
+}
+
+/* ==========================================
+   INTRODUCCIÓN ECLIPSE
+========================================== */
+
+.introduccion {
+
+    max-width: 1000px;
+
+    margin: 60px auto;
+
+    padding: 40px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    text-align: center;
+
+}
+
+
+.introduccion h2 {
+
+    color: #12355B;
+
+    margin-bottom: 25px;
+
+}
+
+
+.introduccion p {
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+
+    color: #405261;
+
+    max-width: 850px;
+
+    margin: 15px auto;
+
+}
+
+/* ==========================================
+   CUENTA ATRÁS GENERAL
+========================================== */
+
+
+.contador-general {
+
+    max-width: 900px;
+
+    margin: 60px auto;
+
+    padding: 45px 30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #081a33,
+        #12355B
+    );
+
+    border-radius: 25px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+.contador-general h2 {
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
+
+
+.contador-general p {
+
+    color:#dbe8f5;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.contador-mini {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.contador-mini div {
+
+    background:white;
+
+    color:#12355B;
+
+    width:130px;
+
+    height:110px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.25);
+
+}
+
+
+
+.contador-mini strong {
+
+    color:#12355B;
+
+    font-size:2.4rem;
+
+    line-height:1;
+
+}
+
+
+
+.contador-mini small {
+
+    color:#52697d;
+
+    font-size:1rem;
+
+    margin-top:8px;
+
+}
+
+.contador-mini strong {
+
+    color:#FDB813;
+
+}
+
+/* ==========================================
+   MAPA GENERAL
+========================================== */
+
+
+.pagina-mapa {
+
+max-width:1100px;
+
+margin:50px auto;
+
+padding:0 20px;
+
+text-align:center;
+
+}
+
+
+
+.pagina-mapa h1 {
+
+color:#12355B;
+
+}
+
+
+
+.intro-mapa {
+
+color:#52697d;
+
+font-size:1.1rem;
+
+margin-bottom:30px;
+
+}
+
+
+
+#mapa-eclipse {
+
+
+height:600px;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.15);
+position:relative;
+
+}
+
+
+
+.icono-mapa {
+
+font-size:32px;
+
+background:none;
+
+border:none;
+
+}
+
+
+
+.panel-distancias {
+
+
+margin-top:40px;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.distancia-item {
+
+
+padding:15px;
+
+border-bottom:
+1px solid #eee;
+
+color:#405261;
+
+}
+
+/* ==========================================
+   ICONOS MAPA
+========================================== */
+
+
+.icono-mapa {
+
+background:none;
+
+border:none;
+
+}
+
+
+
+.marcador-personalizado {
+
+width:45px;
+
+height:45px;
+
+background:white;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+box-shadow:
+0 4px 12px rgba(0,0,0,0.25);
+
+border:3px solid #12355B;
+
+}
+.marcador-personalizado:hover {
+
+transform:scale(1.15);
+
+}
+
+/* ==========================================
+   LEYENDA MAPA
+========================================== */
+
+
+.leyenda-mapa {
+
+
+position:absolute;
+
+
+z-index:500;
+
+
+background:white;
+
+
+right:30px;
+
+
+bottom:30px;
+
+
+padding:15px 20px;
+
+
+border-radius:15px;
+
+
+box-shadow:
+0 5px 20px rgba(0,0,0,0.2);
+
+
+text-align:left;
+
+
+font-size:0.9rem;
+
+
+}
+
+
+
+.leyenda-mapa div {
+
+
+margin:8px 0;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:8px;
+
+
+}
+
+
+
+.leyenda-mapa span {
+
+
+font-size:1.3rem;
+
+
+}
+
+
+
+/* ==========================================
+   BOTON UBICACIÓN
+========================================== */
+
+
+.ubicacion {
+
+
+display:block;
+
+
+margin:25px auto;
+
+
+background:#12355B;
+
+
+color:white;
+
+
+border:none;
+
+
+padding:15px 30px;
+
+
+border-radius:30px;
+
+
+font-size:1rem;
+
+
+cursor:pointer;
+
+
+transition:0.3s;
+
+
+}
+
+
+
+.ubicacion:hover {
+
+
+background:#FDB813;
+
+
+color:#12355B;
+
+
+}
+
+.recomendacion {
+
+
+margin-top:20px;
+
+
+padding:15px;
+
+
+background:#fff4cc;
+
+
+border-radius:15px;
+
+
+color:#12355B;
+
+
+}
+
+.boton.juego{
+
+background:linear-gradient(135deg,#6A5ACD,#4A3FBF);
+
+color:white;
+
+margin-top:18px;
+
+}
+
+.boton.juego:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 25px rgba(74,63,191,.35);
+
+}

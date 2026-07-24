@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Mapa Eclipse Solar | Villar del Arzobispo
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+
+</head>
+
+
+
+<body>
+
+
+<nav class="navbar">
+
+
+<div class="nav-logo">
+
+<img src="img/logo.png">
+
+<span>
+Ayuntamiento de Villar del Arzobispo
+</span>
+
+</div>
+
+
+
+<div class="nav-links">
+
+
+<a href="index.html">
+Inicio
+</a>
+
+
+<a href="pdf/guia-eclipse.pdf" target="_blank">
+📄 Guía
+</a>
+
+
+<a href="mapa.html">
+🗺️ Mapa
+</a>
+
+
+</div>
+
+
+</nav>
+
+
+
+<main class="pagina-mapa">
+
+
+<h1>
+🗺️ Puntos de observación
+</h1>
+
+
+<p class="intro-mapa">
+
+Explora los lugares recomendados para disfrutar del eclipse solar
+desde Villar del Arzobispo.
+
+</p>
+
+
+
+<div id="mapa-eclipse"></div>
+
+<div class="leyenda-mapa">
+
+<div>
+<span>🏘️</span>
+Villar del Arzobispo
+</div>
+
+
+<div>
+<span>🏆</span>
+Mejor visibilidad
+</div>
+
+
+<div>
+<span>🚶</span>
+Acceso fácil
+</div>
+
+
+<div>
+<span>🌄</span>
+Espacio amplio
+</div>
+
+
+<div>
+<span>📍</span>
+Tu ubicación
+</div>
+
+
+</div>
+
+<button 
+id="boton-ubicacion"
+class="boton ubicacion">
+
+📍 Usar mi ubicación
+
+</button>
+
+<section class="panel-distancias">
+
+
+<h2>
+📍 Distancias desde tu ubicación
+</h2>
+
+
+<div id="lista-distancias">
+
+Activa tu ubicación para calcular distancias.
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+
+<a class="volver" href="index.html">
+
+← Volver al inicio
+
+</a>
+
+
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+<script src="js/mapa-general.js"></script>
+
+
+
+</body>
+
+</html>
