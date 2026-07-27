@@ -118,6 +118,11 @@ Inicio
             <small>Consejos</small>
         </a>
 
+        <a href="#localizacion"
+            <span>🗺️</span>
+            <small>Mapa</small>
+        </a>
+
         <a href="#meteorologia">
             <span>🌦️</span>
             <small>Tiempo</small>
@@ -568,9 +573,16 @@ Sigue paso a paso la evolución del eclipse y descubre los fenómenos que podrá
     <p>
         La posición del Sol se actualiza en tiempo real.
     </p>
+  <button id="activarBrujula" class="boton">
+    🧭 Activar brújula
+</button>
+
+<p id="estadoBrujula" class="estado-brujula"></p>
 
     <svg id="brujulaSVG"
          viewBox="0 0 400 400">
+
+    <g id="rosaBrujula">
 
         <!-- círculo -->
 
@@ -610,6 +622,7 @@ Sigue paso a paso la evolución del eclipse y descubre los fenómenos que podrá
         <text x="200" y="392" text-anchor="middle">S</text>
         <text x="20" y="205">O</text>
         <text x="380" y="205" text-anchor="end">E</text>
+        </g>
 
         <!-- Grupo del Sol -->
 

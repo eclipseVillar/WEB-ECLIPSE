@@ -6,7 +6,7 @@ console.log("ECLIPSE JS CARGADO");
 // ===== MODO PRUEBAS =====
 const MODO_PRUEBAS = true;
 
-const FECHA_PRUEBA = "2026-08-12T10:28:20";
+const FECHA_PRUEBA = "2026-08-12T20:28:20";
 // ==========================================
 // FECHAS DEL ECLIPSE
 // ==========================================
@@ -793,3 +793,152 @@ function colocarAstro(id, astro){
 
 
 }
+
+let rumboMovil = 0;
+
+function iniciarBrujula(){
+
+    window.addEventListener(
+        "deviceorientation",
+        actualizarOrientacion
+    );
+
+}
+function actualizarOrientacion(event){
+
+    if(event.alpha == null) return;
+
+    rumboMovil = event.alpha;
+
+    document
+        .getElementById("rosaBrujula")
+        .setAttribute(
+            "transform",
+            `rotate(${-rumboMovil} 200 200)`
+        );
+
+}
+
+const botonBrujula =
+    document.getElementById("activarBrujula");
+
+const estadoBrujula =
+    document.getElementById("estadoBrujula");
+
+    botonBrujula.addEventListener(
+    "click",
+    activarBrujula
+);
+
+async function activarBrujula(){
+
+    if(
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+    ){
+
+        const permiso =
+            await DeviceOrientationEvent.requestPermission();
+
+        if(permiso === "granted"){
+
+            iniciarBrujula();
+
+            estadoBrujula.textContent =
+                "✅ Brújula activada.";
+
+        }else{
+
+            estadoBrujula.textContent =
+                "No se concedió el permiso.";
+
+        }
+
+    }else{
+
+        iniciarBrujula();
+
+        estadoBrujula.textContent =
+            "✅ Brújula activada.";
+
+    }
+
+}
+
+// ==========================================
+// BRÚJULA INTERACTIVA
+// ==========================================
+
+
+
+const rosaBrujula = document.getElementById("rosaBrujula");
+
+function iniciarBrujula() {
+
+    window.addEventListener(
+        "deviceorientation",
+        actualizarOrientacion
+    );
+
+}
+
+function actualizarOrientacion(event) {
+
+    if (event.alpha == null) return;
+
+    const rumbo = event.alpha;
+
+    rosaBrujula.setAttribute(
+        "transform",
+        `rotate(${-rumbo} 200 200)`
+    );
+
+}
+
+async function activarBrujula() {
+
+    try {
+
+        // iPhone
+        if (
+            typeof DeviceOrientationEvent !== "undefined" &&
+            typeof DeviceOrientationEvent.requestPermission === "function"
+        ) {
+
+            const permiso = await DeviceOrientationEvent.requestPermission();
+
+            if (permiso === "granted") {
+
+                iniciarBrujula();
+
+                estadoBrujula.textContent = "✅ Brújula activada.";
+
+            } else {
+
+                estadoBrujula.textContent = "Permiso denegado.";
+
+            }
+
+        } else {
+
+            // Android
+            iniciarBrujula();
+
+            estadoBrujula.textContent = "✅ Brújula activada.";
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        estadoBrujula.textContent = "No se pudo activar la brújula.";
+
+    }
+
+}
+
+botonBrujula.addEventListener(
+    "click",
+    activarBrujula
+);

@@ -380,13 +380,9 @@ document.getElementById(
 
 
 botonUbicacion.addEventListener(
-
-"click",
-
-obtenerUbicacion()
-
+    "click",
+    obtenerUbicacion
 );
-
 
 
 
@@ -551,5 +547,24 @@ ${mejor.nombre}
 `;
 
 
+
+}
+
+const botonLeyenda = document.getElementById("toggleLeyenda");
+const leyenda = document.getElementById("leyenda");
+const flecha = document.getElementById("flechaLeyenda");
+
+if (botonLeyenda){
+
+    botonLeyenda.addEventListener("click",()=>{
+
+        leyenda.classList.toggle("abierta");
+
+        flecha.textContent =
+            leyenda.classList.contains("abierta")
+            ? "▲"
+            : "▼";
+
+    });
 
 }
