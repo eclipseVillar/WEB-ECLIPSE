@@ -4,7 +4,7 @@ console.log("ECLIPSE JS CARGADO");
    Villar del Arzobispo
 ========================================== */
 // ===== MODO PRUEBAS =====
-const MODO_PRUEBAS = true;
+const MODO_PRUEBAS = false;
 
 const FECHA_PRUEBA = "2026-08-12T20:28:20";
 // ==========================================
@@ -116,6 +116,9 @@ document.getElementById("flecha-sol");
 
 const direccionEl =
 document.getElementById("direccion-sol");
+
+const guiaBrujula =
+document.getElementById("guia-brujula");
 
 const grupoSol =
 document.getElementById("grupoSol");
@@ -310,10 +313,6 @@ function actualizar(){
 }
 
 
-actualizar();
-
-setInterval(actualizar,1000);
-
 
 function actualizarSol(){
 
@@ -413,27 +412,239 @@ const y = horizonteFoto - altura * escalaVertical;
 
 }
 
+// ==========================================
+// BRÚJULA INTERACTIVA
+// ==========================================
+
+let rumboMovil = 0;
+let brujulaActiva = false;
+
+
+// Iniciar brújula
+
+function iniciarBrujula(){
+
+    if(
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+    ){
+
+        DeviceOrientationEvent.requestPermission()
+        .then(permission => {
+
+            if(permission === "granted"){
+                activarOrientacion();
+            }
+
+        })
+        .catch(console.error);
+
+
+    } else {
+
+        activarOrientacion();
+
+    }
+
+}
+
+
+
+function activarOrientacion(){
+
+    if(brujulaActiva) return;
+
+    brujulaActiva = true;
+
+
+    window.addEventListener(
+        "deviceorientation",
+        actualizarOrientacion,
+        true
+    );
+
+}
+
+
+
+function actualizarOrientacion(event){
+
+
+    let rumbo;
+
+
+    // iPhone
+
+    if(event.webkitCompassHeading){
+
+        rumbo = event.webkitCompassHeading;
+
+
+    } 
+    // Android
+
+    else if(event.alpha !== null){
+
+        rumbo = 360 - event.alpha;
+
+    }
+
+
+    if(rumbo !== undefined){
+
+        rumboMovil = rumbo;
+
+
+        const rosa =
+        document.getElementById("rosaBrujula");
+
+
+        if(rosa){
+
+            rosa.setAttribute(
+                "transform",
+                `rotate(${-rumboMovil} 200 200)`
+            );
+
+        }
+
+
+        actualizarBrujula();
+
+    }
+
+}
+
+
+
+
 function actualizarBrujula(){
 
-    const posicion = SunCalc.getPosition(
-    obtenerAhora(),
+    const posicion =
+    SunCalc.getPosition(
+        obtenerAhora(),
         ubicacion.lat,
         ubicacion.lng
     );
 
-    // Azimut de SunCalc (0 = Sur)
-    let azimut = posicion.azimuth * 180 / Math.PI;
 
-    // Lo convertimos a brújula (0 = Norte)
-    azimut = (azimut + 180 + 360) % 360;
+    // Azimut del Sol
 
-    grupoSol.setAttribute(
-        "transform",
-        `rotate(${azimut} 200 200)`
-    );
+    const azimutSol =
+    (posicion.azimuth * 180 / Math.PI + 180 + 360) % 360;
+
+
+
+    // Diferencia entre dónde mira el móvil y el Sol
+
+    let diferencia =
+    azimutSol - rumboMovil;
+
+
+
+    // Normalizar entre -180 y 180
+
+    if(diferencia > 180){
+
+        diferencia -= 360;
+
+    }
+
+
+    if(diferencia < -180){
+
+        diferencia += 360;
+
+    }
+
+
+
+    // Rotación de la flecha del Sol
+
+    const grupo =
+    document.getElementById("grupoSol");
+
+
+    if(grupo){
+
+        grupo.setAttribute(
+            "transform",
+            `rotate(${diferencia} 200 200)`
+        );
+
+    }
+
+
+
+    // Texto de dirección general
 
     direccionEl.textContent =
-        `Dirección del Sol: ${obtenerDireccion(azimut)} · ${azimut.toFixed(1)}°`;
+    `Dirección del Sol: ${obtenerDireccion(azimutSol)} · ${azimutSol.toFixed(1)}°`;
+
+
+
+
+    // ==========================================
+    // GUÍA DEL VISITANTE
+    // ==========================================
+
+    if(!guiaBrujula){
+
+        return;
+
+    }
+
+
+
+    const distancia =
+    Math.abs(diferencia);
+
+
+
+    // SOL ENCONTRADO
+
+    if(distancia < 8){
+
+
+        guiaBrujula.textContent =
+        "☀️ ¡Dirección encontrada! Levanta la vista hacia el horizonte.";
+
+
+        guiaBrujula.classList.add("encontrado");
+
+
+        return;
+
+    }
+
+
+
+    guiaBrujula.classList.remove("encontrado");
+
+
+
+    // GIRAR DERECHA
+
+    if(diferencia > 0){
+
+
+        guiaBrujula.textContent =
+        `↪️ Gira ${Math.round(diferencia)}º hacia la derecha para encontrar el Sol`;
+
+    }
+
+
+
+    // GIRAR IZQUIERDA
+
+    else {
+
+
+        guiaBrujula.textContent =
+        `↩️ Gira ${Math.abs(Math.round(diferencia))}º hacia la izquierda para encontrar el Sol`;
+
+    }
+
 
 }
 function obtenerDireccion(grados){
@@ -794,151 +1005,7 @@ function colocarAstro(id, astro){
 
 }
 
-let rumboMovil = 0;
+actualizar();
 
-function iniciarBrujula(){
+setInterval(actualizar,1000);
 
-    window.addEventListener(
-        "deviceorientation",
-        actualizarOrientacion
-    );
-
-}
-function actualizarOrientacion(event){
-
-    if(event.alpha == null) return;
-
-    rumboMovil = event.alpha;
-
-    document
-        .getElementById("rosaBrujula")
-        .setAttribute(
-            "transform",
-            `rotate(${-rumboMovil} 200 200)`
-        );
-
-}
-
-const botonBrujula =
-    document.getElementById("activarBrujula");
-
-const estadoBrujula =
-    document.getElementById("estadoBrujula");
-
-    botonBrujula.addEventListener(
-    "click",
-    activarBrujula
-);
-
-async function activarBrujula(){
-
-    if(
-        typeof DeviceOrientationEvent !== "undefined" &&
-        typeof DeviceOrientationEvent.requestPermission === "function"
-    ){
-
-        const permiso =
-            await DeviceOrientationEvent.requestPermission();
-
-        if(permiso === "granted"){
-
-            iniciarBrujula();
-
-            estadoBrujula.textContent =
-                "✅ Brújula activada.";
-
-        }else{
-
-            estadoBrujula.textContent =
-                "No se concedió el permiso.";
-
-        }
-
-    }else{
-
-        iniciarBrujula();
-
-        estadoBrujula.textContent =
-            "✅ Brújula activada.";
-
-    }
-
-}
-
-// ==========================================
-// BRÚJULA INTERACTIVA
-// ==========================================
-
-
-
-const rosaBrujula = document.getElementById("rosaBrujula");
-
-function iniciarBrujula() {
-
-    window.addEventListener(
-        "deviceorientation",
-        actualizarOrientacion
-    );
-
-}
-
-function actualizarOrientacion(event) {
-
-    if (event.alpha == null) return;
-
-    const rumbo = event.alpha;
-
-    rosaBrujula.setAttribute(
-        "transform",
-        `rotate(${-rumbo} 200 200)`
-    );
-
-}
-
-async function activarBrujula() {
-
-    try {
-
-        // iPhone
-        if (
-            typeof DeviceOrientationEvent !== "undefined" &&
-            typeof DeviceOrientationEvent.requestPermission === "function"
-        ) {
-
-            const permiso = await DeviceOrientationEvent.requestPermission();
-
-            if (permiso === "granted") {
-
-                iniciarBrujula();
-
-                estadoBrujula.textContent = "✅ Brújula activada.";
-
-            } else {
-
-                estadoBrujula.textContent = "Permiso denegado.";
-
-            }
-
-        } else {
-
-            // Android
-            iniciarBrujula();
-
-            estadoBrujula.textContent = "✅ Brújula activada.";
-
-        }
-
-    } catch (error) {
-
-        console.error(error);
-
-        estadoBrujula.textContent = "No se pudo activar la brújula.";
-
-    }
-
-}
-
-botonBrujula.addEventListener(
-    "click",
-    activarBrujula
-);

@@ -118,7 +118,7 @@ Inicio
             <small>Consejos</small>
         </a>
 
-        <a href="#localizacion"
+        <a href="#localizacion">
             <span>🗺️</span>
             <small>Mapa</small>
         </a>
@@ -573,9 +573,12 @@ Sigue paso a paso la evolución del eclipse y descubre los fenómenos que podrá
     <p>
         La posición del Sol se actualiza en tiempo real.
     </p>
-  <button id="activarBrujula" class="boton">
-    🧭 Activar brújula
+ <button onclick="iniciarBrujula()">
+🧭 Activar brújula
 </button>
+<div id="guia-brujula">
+    🧭 Activa la brújula para localizar el Sol
+</div>
 
 <p id="estadoBrujula" class="estado-brujula"></p>
 

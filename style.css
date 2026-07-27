@@ -242,7 +242,8 @@ footer{
 
 .hero h1{
 
-    font-size:2.6rem;
+    font-size:2.3rem;
+    line-height: 1.15;
 
 }
 
@@ -278,8 +279,11 @@ footer{
 /* Ajustar el logo */
 
 .nav-logo img{
-    height:42px;
+
+    height:52px;
     width:auto;
+    object-fit:contain;
+
 }
 
 /* Navbar más compacta */
@@ -2435,5 +2439,36 @@ margin-top:18px;
 transform:translateY(-4px);
 
 box-shadow:0 10px 25px rgba(74,63,191,.35);
+
+}
+
+
+#guia-brujula {
+
+    margin-top: 15px;
+    padding: 12px;
+
+    background: #f4f7fb;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 1rem;
+
+    color: #12355B;
+
+    transition: all 0.3s ease;
+
+}
+
+
+#guia-brujula.encontrado {
+
+    background: #fff3b0;
+
+    color: #7a5200;
+
+    font-weight: bold;
 
 }
