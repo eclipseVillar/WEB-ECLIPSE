@@ -4,7 +4,7 @@ console.log("ECLIPSE JS CARGADO");
    Villar del Arzobispo
 ========================================== */
 // ===== MODO PRUEBAS =====
-const MODO_PRUEBAS = true;
+const MODO_PRUEBAS = false;
 
 const FECHA_PRUEBA = "2026-08-12T20:28:20";
 // ==========================================
