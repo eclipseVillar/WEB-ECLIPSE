@@ -585,19 +585,43 @@ gap: 20px;
     text-decoration:none;
 
 }
-.punto-hero{
-
+.hero-casica{
     background:
-    linear-gradient(rgba(5,25,45,.7),rgba(5,25,45,.8)),
-    url("img/casica-roger.jpg");
+        linear-gradient(rgba(5,25,45,.7), rgba(5,25,45,.8)),
+        url("img/casica-roger.jpg");
 
-    background-size:cover;
-    background-position:center;
+    background-size: cover;
+    background-position: center 40%;
+}
+
+.hero-loma{
+    background:
+        linear-gradient(rgba(5,25,45,.7), rgba(5,25,45,.8)),
+        url("img/la-loma.jpeg");
+
+    background-size: cover;
+    background-position: center 55%;
+}
+
+.hero-castellar{
+    background:
+        linear-gradient(rgba(5,25,45,.7), rgba(5,25,45,.8)),
+        url("img/cerro-castellar.jpeg");
+
+    background-size: cover;
+    background-position: center 45%;
+}
+.hero-casica,
+.hero-loma,
+.hero-castellar{
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     padding:150px 20px 80px;
 
     color:white;
-
     text-align:center;
 
 }

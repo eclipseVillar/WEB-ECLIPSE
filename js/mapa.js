@@ -1,9 +1,12 @@
 /* ==========================================
-   MAPA - CASICA ROGER
+   MAPA - 
 ========================================== */
 
-// Coordenadas de Casica Roger
-const destino = L.latLng(39.686147, -0.799975);
+// Coordenadas del punto de observación
+const destino = L.latLng(
+    DATOS_PUNTO.ubicacion.lat,
+    DATOS_PUNTO.ubicacion.lng
+);
 
 // Crear mapa
 const mapa = L.map("mapa", {
@@ -22,9 +25,9 @@ L.tileLayer(
 const marcadorDestino = L.marker(destino)
     .addTo(mapa)
     .bindPopup(`
-        <strong>📍 Casica Roger</strong><br>
-        Mejor punto recomendado para observar el eclipse.
-    `);
+    <strong>📍 ${DATOS_PUNTO.nombre}</strong><br>
+    Punto recomendado para observar el eclipse.
+`);
 
 marcadorDestino.openPopup();
 

@@ -1,5 +1,5 @@
-const lat = 39.686147;
-const lon = -0.799975;
+const lat = DATOS_PUNTO.ubicacion.lat;
+const lon = DATOS_PUNTO.ubicacion.lng;
 
 const hoy = new Date();
 
@@ -23,7 +23,8 @@ async function cargarMeteorologia(){
     if(hoy < inicioPrevision){
 
         titulo.innerHTML =
-        "Condiciones actuales en Casica Roger.";
+        titulo.innerHTML =
+        `Condiciones actuales en <strong>${DATOS_PUNTO.nombre}</strong>.`;
 
         url =
 `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,cloud_cover,wind_speed_10m,visibility`;

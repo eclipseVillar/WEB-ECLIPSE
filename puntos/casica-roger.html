@@ -58,7 +58,7 @@ Inicio
 <!-- CABECERA DEL PUNTO -->
 
 <section class="punto-hero">
-
+<header class="punto-hero hero-casica">
 
 <h1>
 📍 Casica Roger
@@ -1037,6 +1037,68 @@ Descarga nuestra infografía con las recomendaciones básicas para disfrutar del
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+
+<script>
+
+const DATOS_PUNTO = {
+
+    nombre: "Casica Roger",
+
+    ubicacion: {
+
+        lat: 39.686147,
+        lng: -0.799975
+
+    },
+
+    vistaFoto: {
+
+        azimutCentro: 270,
+
+        horizonte: 300,
+
+        escalaVertical: 12,
+
+        escalaHorizontal: 4
+
+    },
+
+    eclipse: {
+
+        parcial: "2026-08-12T19:37:57+02:00",
+
+        totalidad: "2026-08-12T20:32:09+02:00",
+
+        maximo: "2026-08-12T20:32:41+02:00",
+
+        finTotalidad: "2026-08-12T20:33:14+02:00",
+
+        ocaso: "2026-08-12T21:03:23+02:00"
+
+    },
+
+    planetas: {
+
+        venus: {
+
+            azimut: 286,
+            altura: 17
+
+        },
+
+        mercurio: {
+
+            azimut: 255,
+            altura: 8
+
+        }
+
+    }
+
+};
+
+</script>
 
 <script src="../js/eclipse.js"></script>
 

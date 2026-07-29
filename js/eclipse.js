@@ -4,7 +4,7 @@ console.log("ECLIPSE JS CARGADO");
    Villar del Arzobispo
 ========================================== */
 // ===== MODO PRUEBAS =====
-const MODO_PRUEBAS = false;
+const MODO_PRUEBAS = true;
 
 const FECHA_PRUEBA = "2026-08-12T20:28:20";
 // ==========================================
@@ -13,15 +13,15 @@ const FECHA_PRUEBA = "2026-08-12T20:28:20";
 
 const eclipse = {
 
-    parcial: new Date("2026-08-12T19:37:57+02:00"),
+    parcial: new Date(DATOS_PUNTO.eclipse.parcial),
 
-    totalidad: new Date("2026-08-12T20:32:09+02:00"),
+    totalidad: new Date(DATOS_PUNTO.eclipse.totalidad),
 
-    maximo: new Date("2026-08-12T20:32:41+02:00"),
+    maximo: new Date(DATOS_PUNTO.eclipse.maximo),
 
-    finTotalidad: new Date("2026-08-12T20:33:14+02:00"),
+    finTotalidad: new Date(DATOS_PUNTO.eclipse.finTotalidad),
 
-    ocaso: new Date("2026-08-12T21:03:23+02:00")
+    ocaso: new Date(DATOS_PUNTO.eclipse.ocaso)
 
 };
 // ==========================================
@@ -30,9 +30,9 @@ const eclipse = {
 
 const ubicacion = {
 
-    lat: 39.686147,
+    lat: DATOS_PUNTO.ubicacion.lat,
 
-    lng: -0.799975
+    lng: DATOS_PUNTO.ubicacion.lng
 
 };
 
@@ -41,24 +41,7 @@ const ubicacion = {
 // CALIBRACIÓN DE LA PANORÁMICA
 // ==========================================
 
-const vistaFoto = {
-
-    // Dirección hacia la que está centrada la fotografía
-    azimutCentro: 270,
-
-
-    // Altura del horizonte real dentro de la imagen
-    horizonte: 300,
-
-
-    // Píxeles que sube cada grado de altura
-    escalaVertical: 12,
-
-
-    // Píxeles que se desplaza cada grado de azimut
-    escalaHorizontal: 4
-
-};
+const vistaFoto = DATOS_PUNTO.vistaFoto;
 
 const alturaEl =
 document.getElementById("altura-sol");
@@ -66,24 +49,7 @@ document.getElementById("altura-sol");
 const azimutEl =
 document.getElementById("azimut-sol");
 
-const planetas = {
-
-    venus: {
-
-        azimut: 286,
-        altura: 17
-
-    },
-
-
-    mercurio: {
-
-        azimut: 255,
-        altura: 8
-
-    }
-
-};
+const planetas = DATOS_PUNTO.planetas;
 
 
 
@@ -344,34 +310,23 @@ function actualizarSol(){
 }
 function actualizarCielo(){
 
-    console.log("Actualizando cielo");
-
     const ahora = obtenerAhora();
 
-
-    const posicion =
-    SunCalc.getPosition(
+    const posicion = SunCalc.getPosition(
         ahora,
         ubicacion.lat,
         ubicacion.lng
     );
 
-
     const altura =
-    posicion.altitude * 180 / Math.PI;
-
+        posicion.altitude * 180 / Math.PI;
 
     const azimut =
-    (posicion.azimuth * 180 / Math.PI + 180) % 360;
+        (posicion.azimuth * 180 / Math.PI + 180) % 360;
 
-
-
-    // Vista de la foto: oeste
-    const centroVista = 270;
-
-
-    let diferencia = azimut - centroVista;
-
+    // Diferencia respecto al centro de la fotografía
+    let diferencia =
+        azimut - vistaFoto.azimutCentro;
 
     if(diferencia > 180){
         diferencia -= 360;
@@ -381,34 +336,21 @@ function actualizarCielo(){
         diferencia += 360;
     }
 
+    // Posición en la imagen
+    const x =
+        400 +
+        diferencia * vistaFoto.escalaHorizontal;
 
-    // Ajuste horizontal
-    const x = 400 + diferencia * 4;
-
-
-    // Ajuste vertical
-const horizonteFoto = 300;
-
-const escalaVertical = 12;
-
-const y = horizonteFoto - altura * escalaVertical;
-
+    const y =
+        vistaFoto.horizonte -
+        altura * vistaFoto.escalaVertical;
 
     document
-    .getElementById("grupoSolCielo")
-    .setAttribute(
-        "transform",
-        `translate(${x},${y})`
-    );
-
-
-    console.log({
-        altura,
-        azimut,
-        diferencia,
-        x,
-        y
-    });
+        .getElementById("grupoSolCielo")
+        .setAttribute(
+            "transform",
+            `translate(${x},${y})`
+        );
 
 }
 
@@ -947,61 +889,98 @@ function colocarPlanetas(){
 
 function colocarAstro(id, astro){
 
-
-    // Diferencia respecto al centro de la fotografía
-
     let diferencia =
-    astro.azimut - vistaFoto.azimutCentro;
-
-
-
-    // Evitar saltos de 360 grados
+        astro.azimut - vistaFoto.azimutCentro;
 
     if(diferencia > 180){
-
         diferencia -= 360;
-
     }
-
 
     if(diferencia < -180){
-
         diferencia += 360;
-
     }
 
-
-
-    // Posición horizontal
-
     const x =
-    400 +
-    diferencia * vistaFoto.escalaHorizontal;
-
-
-
-    // Posición vertical
+        400 +
+        diferencia * vistaFoto.escalaHorizontal;
 
     const y =
-    vistaFoto.horizonte -
-    astro.altura * vistaFoto.escalaVertical;
-
-
+        vistaFoto.horizonte -
+        astro.altura * vistaFoto.escalaVertical;
 
     const elemento =
-    document.getElementById(id);
+        document.getElementById(id);
 
+    if(!elemento) return;
 
+    // Astro dentro de la imagen
+    if(x >= 0 && x <= 800 && y >= 0 && y <= 600){
 
-    if(elemento){
+        elemento.style.display = "";
 
         elemento.setAttribute(
             "transform",
             `translate(${x},${y})`
         );
 
+        return;
     }
 
+    // Si está fuera, ocultamos el astro
+    elemento.style.display = "none";
+
+    mostrarIndicador(id, x, y);
+
+}
+function mostrarIndicador(id, x, y){
+
+    const indicador =
+        document.getElementById(id + "Indicador");
+
+    if(!indicador) return;
+
+    indicador.style.display = "";
+
+    let px = Math.min(Math.max(x,25),775);
+    let py = Math.min(Math.max(y,25),575);
+
+    let flecha = "";
+
+    if(y < 0){
+
+        py = 20;
+        flecha = "↑";
+
+    }
+
+    else if(y > 600){
+
+        py = 580;
+        flecha = "↓";
+
+    }
+
+    else if(x < 0){
+
+        px = 20;
+        flecha = "←";
+
+    }
+
+    else if(x > 800){
+
+        px = 780;
+        flecha = "→";
+
+    }
+
+    indicador.setAttribute(
+        "transform",
+        `translate(${px},${py})`
+    );
+
+    indicador.querySelector(".flecha")
+        .textContent = flecha;
 
 }
 
